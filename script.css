@@ -85,6 +85,13 @@ body {
 .branding {
   font-weight: bold;
   font-size: 0.75rem; /* 50% smaller */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo {
+  height: 30px;
+  width: auto;
 }
 #theme-toggle {
   background: none;
@@ -419,6 +426,17 @@ body {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.service-item .service-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.service-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 .whatsapp-btn {
   background: #25D366;
