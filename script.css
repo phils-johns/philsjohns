@@ -382,3 +382,59 @@ main {
   text-decoration: none;
   font-weight: 600;
 }
+
+/* premium portfolio enhancements */
+body {
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.5s, color 0.5s;
+}
+.portfolio-main {
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+  padding-bottom: 4rem; /* keep bottom nav clear */
+}
+
+.header {
+  backdrop-filter: blur(10px);
+}
+
+.cv-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0 0 1rem 1rem;
+  padding: 3rem 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.cv-section {
+  background-color: rgba(255,255,255,0.85);
+  border-left: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  backdrop-filter: blur(8px);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.cv-section.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.skills-list li {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.skills-list li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.contact-item {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
