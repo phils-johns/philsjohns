@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="script.css">
+    <title>PhilsJohns - Portfolio</title>
+</head>
+<body>
+    <header class="header">
+        <div class="branding">philsjohns</div>
+        <nav class="top-nav">
+            <a href="projets.html">Projets</a>
+            <a href="portfolio.html">Portfolio</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Basculer le mode sombre">🌙</button>
+    </header>
+    <main>
+        <section class="cv-header">
+            <h1>JOHNSON Ekor Bendu Philippe</h1>
+            <h2>Developer & Economics Student</h2>
+        </section>
+
+        <section class="cv-section">
+            <h3>📚 Education</h3>
+            <div class="cv-item">
+                <h4>BEPC (Brevet d'Études du Premier Cycle)</h4>
+                <p>Secondary education certificate</p>
+            </div>
+            <div class="cv-item">
+                <h4>BAC (Baccalauréat)</h4>
+                <p>High school diploma</p>
+            </div>
+            <div class="cv-item">
+                <h4>1st Year Economics</h4>
+                <p>Currently pursuing Bachelor's degree in Economics at University</p>
+            </div>
+        </section>
+
+        <section class="cv-section">
+            <h3>💻 Technical Skills</h3>
+            <ul class="skills-list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>AI Prompting</li>
+                <li>Vibe Coding</li>
+            </ul>
+        </section>
+
+        <section class="cv-section">
+            <h3>📄 Office Skills</h3>
+            <ul class="skills-list">
+                <li>Microsoft Word</li>
+                <li>Microsoft Excel</li>
+                <li>Microsoft PowerPoint</li>
+            </ul>
+        </section>
+
+        <section class="cv-section">
+            <h3>🎨 Design Skills</h3>
+            <ul class="skills-list">
+                <li>Graphic Design</li>
+                <li>Posters Making</li>
+                <li>Video Editing</li>
+                <li>Image Editing</li>
+            </ul>
+        </section>
+
+        <section class="cv-section">
+            <h3>📞 Contact Information</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>📱 Phone</strong>
+                    <p>+228 79905677</p>
+                </div>
+                <div class="contact-item">
+                    <strong>✉️ Email</strong>
+                    <p><a href="mailto:johnsonphilippe29@gmail.com">johnsonphilippe29@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <strong>📍 Location</strong>
+                    <p>TOGO - Lomé</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <nav class="bottom-nav">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Services</a>
+    </nav>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        toggle.addEventListener('click', () => {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            toggle.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>

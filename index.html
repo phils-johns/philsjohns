@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="script.css">
+    <title>PhilsJohns - Accueil</title>
+</head>
+<body>
+    <header class="header">
+        <div class="branding">philsjohns</div>
+        <nav class="top-nav">
+            <a href="projets.html">Projets</a>
+            <a href="portfolio.html">Portfolio</a>
+        </nav>
+        <button id="theme-toggle" aria-label="Basculer le mode sombre">🌙</button>
+    </header>
+    <main>
+        <section class="hero">
+            <h1>Bienvenue chez PhilsJohns</h1>
+            <p>Page d'accueil de l'agence.</p>
+            <p>Nous collaborons avec le groupe WEST pour offrir des solutions innovantes.</p>
+        </section>
+        <section class="gallery scroll-reveal">
+            <h2>Nos images à l'appui</h2>
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400" alt="Design créatif" class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400" alt="Développement web" class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=400" alt="Montage vidéo" class="gallery-item">
+        </section>
+    </main>
+    <nav class="bottom-nav">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Services</a>
+    </nav>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        toggle.addEventListener('click', () => {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            toggle.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-reveal, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
