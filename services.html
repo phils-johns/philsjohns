@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- premium font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="script.css">
     <title>PhilsJohns - Services</title>
 </head>
@@ -15,23 +17,23 @@
         </nav>
         <button id="theme-toggle" aria-label="Basculer le mode sombre">🌙</button>
     </header>
-    <main>
+    <main class="services-main">
         <h1>Services Digitaux</h1>
         <p>Nous proposons une gamme complète de services :</p>
-        <ul>
-            <li>Graphismes</li>
-            <li>Maintenance système</li>
-            <li>Développement web</li>
-            <li>Montage vidéo</li>
-            <li>Retouche photo</li>
+        <ul class="services-list">
+            <li>Graphismes <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20Graphismes" class="whatsapp-btn">WhatsApp</a></li>
+            <li>Maintenance système <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20Maintenance%20syst%C3%A8me" class="whatsapp-btn">WhatsApp</a></li>
+            <li>Développement web <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20D%C3%A9veloppement%20web" class="whatsapp-btn">WhatsApp</a></li>
+            <li>Montage vidéo <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20Montage%20vid%C3%A9o" class="whatsapp-btn">WhatsApp</a></li>
+            <li>Retouche photo <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20Retouche%20photo" class="whatsapp-btn">WhatsApp</a></li>
         </ul>
         <section class="gallery">
             <h2>Quelques exemples de nos réalisations</h2>
-            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400" alt="Graphisme">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400" alt="Développement web">
-            <img src="https://images.unsplash.com/photo-1578926314433-b37441dc0d19?w=400" alt="Montage vidéo">
-            <img src="https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=400" alt="Retouche photo">
-            <img src="https://images.unsplash.com/photo-1518611505868-48510c8212f5?w=400" alt="Maintenance système">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400" alt="Graphisme"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400" alt="Développement web"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1578926314433-b37441dc0d19?w=400" alt="Montage vidéo"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=400" alt="Retouche photo"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518611505868-48510c8212f5?w=400" alt="Maintenance système"></div>
         </section>
     </main>
     <nav class="bottom-nav">
@@ -48,6 +50,19 @@
             const next = current === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', next);
             toggle.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const obs = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, {threshold:0.2});
+            galleryItems.forEach(i=>obs.observe(i));
         });
     </script>
 </body>
