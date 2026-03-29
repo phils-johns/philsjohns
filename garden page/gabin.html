@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Green - Jardinage & Ménage</title>
+    <style>
+        :root {
+            --vert: #2f7a3f;
+            --vert-clair: #7dbf7a;
+            --gris: #f4f6f3;
+            --gris-fonce: #28352f;
+            --blanc: #ffffff;
+            --ombre: rgba(0, 0, 0, 0.12);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding-bottom: 120px;
+            background: radial-gradient(circle at top, #162316 0%, #0c140a 45%, #08110c 100%);
+            color: var(--blanc);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        header {
+            background: rgba(47, 122, 63, 0.96);
+            color: var(--blanc);
+            padding: 16px 20px;
+            position: fixed;
+            left: 50%;
+            bottom: 16px;
+            transform: translateX(-50%);
+            width: min(1020px, calc(100% - 32px));
+            border-radius: 999px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+            z-index: 20;
+        }
+        .container {
+            width: min(1100px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+        .brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .brand h1 {
+            margin: 0;
+            font-size: 1.6rem;
+            letter-spacing: 0.08em;
+            font-weight: 800;
+        }
+        nav a {
+            color: rgba(255,255,255,0.95);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.1);
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        nav a:hover {
+            color: #ffffff;
+            background: rgba(255,255,255,0.22);
+        }
+        .bottom-actions {
+            display: none;
+        }
+        .bottom-actions a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 12px 10px;
+            margin: 0 6px;
+            border-radius: 999px;
+            text-decoration: none;
+            color: var(--blanc);
+            background: rgba(47,122,63,0.95);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .bottom-actions a:hover {
+            background: rgba(47,122,63,1);
+        }
+        .hero {
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: -30px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(125,191,122,0.45) 0%, transparent 70%);
+            filter: blur(8px);
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: -40px;
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, rgba(47,122,63,0.22) 0%, transparent 65%);
+            filter: blur(10px);
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero h2 {
+            margin: 0 0 16px;
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+        }
+        .hero p {
+            margin: 0 0 24px;
+            max-width: 640px;
+            font-size: 1.05rem;
+        }
+        .hero .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        nav a::before {
+            content: '🌿';
+            margin-right: 8px;
+        }
+        .card::before {
+            content: '🍃';
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.5rem;
+        }
+        .testimonial-card::before {
+            content: '💬';
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        .button-primary {
+            background: #3f8c50;
+            color: var(--blanc);
+        }
+        .button-secondary {
+            background: rgba(255,255,255,0.12);
+            color: var(--blanc);
+            border: 1px solid rgba(255,255,255,0.22);
+        }
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        .hero-visual {
+            display: grid;
+            gap: 18px;
+        }
+        .hero-card {
+            background: #172c1d;
+            color: var(--blanc);
+            border-radius: 24px;
+            box-shadow: 0 18px 48px rgba(0,0,0,0.28);
+            padding: 24px;
+        }
+        .hero-card h3 {
+            margin-top: 0;
+            font-weight: 800;
+        }
+        .hero-card p {
+            margin: 0.75rem 0 0;
+            color: rgba(255,255,255,0.75);
+        }
+        section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .section-title h3 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--blanc);
+        }
+        .section-title p {
+            margin: 12px auto 0;
+            max-width: 680px;
+            color: rgba(255,255,255,0.75);
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0,1fr));
+            gap: 22px;
+        }
+        .card {
+            background: #122315;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 16px 32px rgba(0,0,0,0.28);
+        }
+        .card h4 {
+            margin: 0 0 14px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--blanc);
+        }
+        .card p {
+            margin: 0 1px 0;
+            color: rgba(255,255,255,0.75);
+        }
+        .card ul {
+            padding-left: 18px;
+            margin: 14px 0 0;
+            color: rgba(255,255,255,0.75);
+        }
+        .highlight {
+            color: var(--vert);
+        }
+        .testimonial-grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+        .testimonial-card {
+            background: rgba(24, 42, 28, 0.96);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 14px 32px rgba(0,0,0,0.28);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .testimonial-card h4 {
+            margin: 0 0 12px;
+            font-size: 1.1rem;
+            color: var(--blanc);
+            font-weight: 800;
+        }
+        .testimonial-card p {
+            margin: 0;
+            color: rgba(255,255,255,0.78);
+        }
+        .testimonial-card .quote {
+            font-style: italic;
+            margin-bottom: 18px;
+            color: #3b4d3a;
+        }
+        .booking {
+            display: grid;
+            gap: 20px;
+        }
+        .booking-details {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+        }
+        .whatsapp-box,
+        .bundle-box {
+            background: #234826;
+            color: var(--blanc);
+            border-radius: 24px;
+            padding: 26px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.28);
+        }
+        .whatsapp-box h4,
+        .bundle-box h4 {
+            margin-top: 0;
+        }
+        .whatsapp-box a,
+        .bundle-box a {
+            display: inline-flex;
+            margin-top: 16px;
+        }
+        .form-card {
+            background: var(--blanc);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 18px 36px rgba(0,0,0,0.08);
+        }
+        .form-card label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #344235;
+        }
+        .form-card input,
+        .form-card textarea,
+        .form-card select {
+            width: 100%;
+            border: 1px solid #d8dfd5;
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 16px;
+            font: inherit;
+            color: #2c3f2d;
+            background: #fbfdfa;
+        }
+        .form-card textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-card button {
+            width: 100%;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 999px;
+            background: var(--vert);
+            color: var(--blanc);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .form-card button:hover {
+            background: #265d30;
+        }
+        footer {
+            padding: 28px 0 34px;
+            text-align: center;
+            color: #5d6c5f;
+            background: #eef4ea;
+        }
+        @media (max-width: 900px) {
+            .hero-grid, .booking-details, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                margin-top: 18px;
+            }
+            .brand {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        @media (max-width: 700px) {
+            header {
+                width: calc(100% - 24px);
+            }
+            .brand {
+                align-items: center;
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 14px;
+            }
+            nav a {
+                margin-left: 0;
+            }
+        }
+        @media (max-width: 640px) {
+            header {
+                display: none;
+            }
+            .bottom-actions {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 10px 12px;
+                justify-content: space-between;
+                gap: 8px;
+                background: rgba(47, 122, 63, 0.96);
+                box-shadow: 0 -10px 24px rgba(0,0,0,0.18);
+                z-index: 30;
+            }
+            body {
+                padding-bottom: 84px;
+            }
+            .hero {
+                padding-top: 60px;
+            }
+            .button {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero::before {
+                width: 120px;
+                height: 120px;
+                top: -20px;
+                left: -10px;
+            }
+            .hero::after {
+                width: 160px;
+                height: 160px;
+                bottom: -20px;
+                right: -20px;
+            }
+            .testimonial-grid, .grid-3, .booking-details {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                width: calc(100% - 24px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container brand">
+            <div>
+                <h1>The Green</h1>
+                
+            </div>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#forfaits">Forfaits</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <div class="bottom-actions">
+        <a href="#services">Services</a>
+        <a href="#forfaits">Forfaits</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-grid">
+                <div>
+                    <h2>Entretien de jardin et ménage fiable pour votre maison ou votre entreprise</h2>
+                    <p>Chez <span class="highlight">The Green</span>, nous proposons des prestations de jardinage, nettoyage et aide à domicile en toute confiance. Réservez un forfait ou organisez une rencontre directement sur WhatsApp.</p>
+                    <div class="actions">
+                        <a class="button button-primary" href="#forfaits">Voir les forfaits</a>
+                        <a class="button button-secondary" href="https://wa.me/22899915142" target="_blank" rel="noreferrer">Réserver via WhatsApp</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <h3>Service professionnel</h3>
+                        <p>Jardinage et ménage adaptés à vos besoins : tonte, taille, désherbage, nettoyage des terrasses, entretien de plantes, et plus encore.</p>
+                    </div>
+                    <div class="hero-card">
+                        <h3>Réservation facile</h3>
+                        <p>Choisissez un forfait ou envoyez-nous un message WhatsApp pour fixer un rendez-vous rapide au +228 99 91 51 42.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="section-title">
+                <h3>Nos services</h3>
+                <p>Des solutions complètes pour garder votre maison et votre jardin propres, sains et agréables.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>Jardinage</h4>
+                    <p>Entretien du gazon, taille des haies, désherbage, plantation de fleurs et arrosage régulier.</p>
+                </div>
+                <div class="card">
+                    <h4>Ménage</h4>
+                    <p>Nettoyage complet des pièces, vitres, sols, salles de bain et cuisine avec des produits sûrs.</p>
+                </div>
+                <div class="card">
+                    <h4>Maintenance</h4>
+                    <p>Petits travaux et vérifications : ramassage de feuilles, entretien des allées, débroussaillage.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="temoignages">
+            <div class="section-title">
+                <h3>Témoignages clients</h3>
+                <p>Ils nous ont fait confiance pour l'entretien de leur jardin et le ménage de leur maison.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <h4>Marie B.</h4>
+                    <p class="quote">« The Green a transformé mon jardin en un espace propre et frais. Très professionnel et rapide ! »</p>
+                    <p>Jardinage complet, tonte et taille des haies. Je recommande vivement.</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Jean P.</h4>
+                    <p class="quote">« Le ménage était impeccable et l'équipe a respecté toutes mes consignes. »</p>
+                    <p>Nettoyage de la maison et vitres. Service fiable et sérieux.</p>
+                </div>
+                <div class="testimonial-card">
+                    <h4>Claire S.</h4>
+                    <p class="quote">« Facile de réserver sur WhatsApp et le résultat est parfait. »</p>
+                    <p>Forfait complet jardin + ménage avec un vrai suivi client.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="forfaits">
+            <div class="section-title">
+                <h3>Forfaits de service</h3>
+                <p>Sélectionnez un forfait clé en main et obtenez une prestation rapide et claire, avec la possibilité de réserver en un clic.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>Forfait Jardin Basic</h4>
+                    <ul>
+                        <li>Tonte du gazon</li>
+                        <li>Désherbage</li>
+                        <li>Ramassage des déchets verts</li>
+                    </ul>
+                    <p>Idéal pour un jardin bien entretenu sans effort.</p>
+                </div>
+                <div class="card">
+                    <h4>Forfait Ménage Maison</h4>
+                    <ul>
+                        <li>Nettoyage des pièces</li>
+                        <li>Lavages des sols</li>
+                        <li>Dépoussiérage et vitres</li>
+                    </ul>
+                    <p>Pour une maison propre et agréable en un seul passage.</p>
+                </div>
+                <div class="card">
+                    <h4>Forfait Complet</h4>
+                    <ul>
+                        <li>Jardinage + ménage</li>
+                        <li>Entretien personnalisé</li>
+                        <li>Conseils et suivi</li>
+                    </ul>
+                    <p>La solution la plus pratique pour un entretien global.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-title">
+                <h3>Contactez-nous</h3>
+                <p>Réservez un forfait ou prenez rendez-vous pour un échange sur WhatsApp. C'est rapide, simple et sans engagement.</p>
+            </div>
+            <div class="booking-details">
+                <div class="whatsapp-box">
+                    <h4>Rencontre directe sur WhatsApp</h4>
+                    <p>Envoyez-nous un message maintenant pour discuter du service dont vous avez besoin :</p>
+                    <p><strong>+228 99 91 51 42</strong></p>
+                    <a class="button button-primary" href="https://wa.me/22899915142" target="_blank" rel="noreferrer">Écrire sur WhatsApp</a>
+                </div>
+                <div class="form-card">
+                    <form id="bookingForm">
+                        <label for="name">Nom</label>
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Votre email">
+
+                        <label for="service">Service souhaité</label>
+                        <select id="service" name="service" required>
+                            <option value="">Choisir un service</option>
+                            <option value="Jardin Basic">Jardin Basic</option>
+                            <option value="Ménage Maison">Ménage Maison</option>
+                            <option value="Forfait Complet">Forfait Complet</option>
+                            <option value="Rendez-vous WhatsApp">Rendez-vous WhatsApp</option>
+                        </select>
+
+                        <label for="message">Détails</label>
+                        <textarea id="message" name="message" placeholder="Décrivez votre besoin"></textarea>
+
+                        <button type="submit">Envoyer la demande</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 The Green. Service de jardinage et ménage au Togo. Réservation WhatsApp : +228 99 91 51 42.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = encodeURIComponent(document.getElementById('name').value.trim());
+            const service = encodeURIComponent(document.getElementById('service').value);
+            const message = encodeURIComponent(document.getElementById('message').value.trim() || 'Bonjour, je souhaite réserver un service.');
+            const text = `Bonjour, je suis ${name} et je souhaite réserver : ${service}. Détails : ${message}`;
+            const whatsappUrl = `https://wa.me/22899915142?text=${text}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="branding"><img src="PHILS-JOHNS.png" alt="Logo" class="logo"> philsjohns</div>
+        <div class="branding">philsjohns</div>
         <nav class="top-nav">
             <a href="projets.html">Projets</a>
             <a href="portfolio.html">Portfolio</a>
@@ -16,15 +16,39 @@
         <button id="theme-toggle" aria-label="Basculer le mode sombre">🌙</button>
     </header>
     <main>
-        <h1>Nos Projets</h1>
-        <p>Description des projets réalisés par l'entreprise.</p>
+        <section>
+            <h1>Nos Projets</h1>
+        <h3>Graphic réalisés par l'agence.</h3>
+        </section>
+        
+        <ol>
+        <img class="img" src="P1.png" alt="Graphisme">
+        <img class="img" src="P2.png" alt="Graphisme">
+        <img class="img" src="P2.png" alt="Graphisme">
+        <img class="img" src="P2.png" alt="Graphisme">
+        </ol>
+        <section>
+            <ol>
+        <img class="img" src="P1.png" alt="Graphisme">
+        <img class="img" src="P2.png" alt="Graphisme">
+        <img class="img" src="P2.png" alt="Graphisme">
+        <img class="img" src="P2.png" alt="Graphisme">
+        </ol>
+        </section>
+        <section>
+    <h3>liens des projets & prototypes  réalisés par l'agence.</h3>
+        <a href="projets.html">Projets</a>
+        <a href="projets.html">Projets</a>
+        <a href="projets.html">Projets</a>
+        <a href="projets.html">Projets</a>
+        </section>
     </main>
     <nav class="bottom-nav">
         <a href="index.html">Home</a>
         <a href="contact.html">Contact</a>
         <a href="services.html">Services</a>
     </nav>
-
+    
     <script>
         const toggle = document.getElementById('theme-toggle');
         toggle.addEventListener('click', () => {

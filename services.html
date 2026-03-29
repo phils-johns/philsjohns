@@ -3,67 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- premium font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="script.css">
     <title>PhilsJohns - Services</title>
 </head>
 <body>
     <header class="header">
-        <div class="branding"><img src="PHILS-JOHNS.png" alt="Logo" class="logo"> philsjohns</div>
+        <div class="branding">philsjohns</div>
         <nav class="top-nav">
             <a href="projets.html">Projets</a>
             <a href="portfolio.html">Portfolio</a>
         </nav>
         <button id="theme-toggle" aria-label="Basculer le mode sombre">🌙</button>
     </header>
-    <main class="services-main">
+    <main>
         <h1>Services Digitaux</h1>
         <p>Nous proposons une gamme complète de services :</p>
-        <ul class="services-list">
-            <li class="service-item">
-                <div class="service-info">
-                    <img src="https://images.unsplash.com/photo-1557682250-57f3d5f2b647?w=80" alt="Graphismes" class="service-img">
-                    <span>Graphismes</span>
-                </div>
-                <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20Graphismes" class="whatsapp-btn">WhatsApp</a>
-            </li>
-            <li class="service-item">
-                <div class="service-info">
-                    <img src="https://images.unsplash.com/photo-1612778188379-f90ecb0ec5fb?w=80" alt="Maintenance système" class="service-img">
-                    <span>Maintenance système</span>
-                </div>
-                <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20Maintenance%20syst%C3%A8me" class="whatsapp-btn">WhatsApp</a>
-            </li>
-            <li class="service-item">
-                <div class="service-info">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=80" alt="Développement web" class="service-img">
-                    <span>Développement web</span>
-                </div>
-                <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20D%C3%A9veloppement%20web" class="whatsapp-btn">WhatsApp</a>
-            </li>
-            <li class="service-item">
-                <div class="service-info">
-                    <img src="https://images.unsplash.com/photo-1519791889655-4e20b7121b4e?w=80" alt="Montage vidéo" class="service-img">
-                    <span>Montage vidéo</span>
-                </div>
-                <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20Montage%20vid%C3%A9o" class="whatsapp-btn">WhatsApp</a>
-            </li>
-            <li class="service-item">
-                <div class="service-info">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=80" alt="Retouche photo" class="service-img">
-                    <span>Retouche photo</span>
-                </div>
-                <a href="https://wa.me/22879905677?text=Bonjour%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20de%20Retouche%20photo" class="whatsapp-btn">WhatsApp</a>
-            </li>
+        <ul>
+            <li>Graphismes</li>
+            <li>Maintenance système</li>
+            <li>Développement web</li>
+            <li>Montage vidéo</li>
+            <li>Retouche photo</li>
         </ul>
         <section class="gallery">
             <h2>Quelques exemples de nos réalisations</h2>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400" alt="Graphisme"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400" alt="Développement web"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1578926314433-b37441dc0d19?w=400" alt="Montage vidéo"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=400" alt="Retouche photo"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518611505868-48510c8212f5?w=400" alt="Maintenance système"></div>
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400" alt="Graphisme">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400" alt="Développement web">
+            <img src="https://images.unsplash.com/photo-1578926314433-b37441dc0d19?w=400" alt="Montage vidéo">
+            <img src="https://images.unsplash.com/photo-1606986628025-35d57e735ae0?w=400" alt="Retouche photo">
+            <img src="https://images.unsplash.com/photo-1518611505868-48510c8212f5?w=400" alt="Maintenance système">
         </section>
     </main>
     <nav class="bottom-nav">
@@ -80,19 +48,6 @@
             const next = current === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', next);
             toggle.textContent = next === 'dark' ? '☀️' : '🌙';
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            const obs = new IntersectionObserver(entries => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('visible');
-                        obs.unobserve(e.target);
-                    }
-                });
-            }, {threshold:0.2});
-            galleryItems.forEach(i=>obs.observe(i));
         });
     </script>
 </body>

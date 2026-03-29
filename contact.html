@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="header">
-        <div class="branding"><img src="PHILS-JOHNS.png" alt="Logo" class="logo"> philsjohns</div>
+        <div class="branding">philsjohns</div>
         <nav class="top-nav">
             <a href="projets.html">Projets</a>
             <a href="portfolio.html">Portfolio</a>
@@ -58,7 +58,7 @@
 
                 <div class="contact-card">
                     <h4>📱 Téléphone</h4>
-                    <p><a href="tel:+22879905677">+228 79905677</a></p>
+                    <p><a href="tel:+22899915142">+228 99915142</a></p>
                 </div>
 
                 <div class="contact-card">
@@ -86,7 +86,7 @@
             const current = html.getAttribute('data-theme');
             const next = current === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', next);
-            toggle.textContent = next === 'dark' ? '☀️' : '🌙';
+            toggle.textContent = next === 'dark' ? '☀️' : '🌙NIGHT';
         });
 
         // WhatsApp Form Submission
@@ -107,7 +107,7 @@
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
             // URL WhatsApp (numéro sans le +)
-            const whatsappURL = `https://wa.me/22879905677?text=${encodedMessage}`;
+            const whatsappURL = `https://wa.me/22899915142?text=${encodedMessage}`;
             
             // Rediriger vers WhatsApp
             window.open(whatsappURL, '_blank');

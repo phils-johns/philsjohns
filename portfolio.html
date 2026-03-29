@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- premium font for clean modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="script.css">
     <title>PhilsJohns - Portfolio</title>
 </head>
@@ -17,7 +15,7 @@
         </nav>
         <button id="theme-toggle" aria-label="Basculer le mode sombre">🌙</button>
     </header>
-    <main class="portfolio-main">
+    <main>
         <section class="cv-header">
             <h1>JOHNSON Ekor Bendu Philippe</h1>
             <h2>Developer & Economics Student</h2>
@@ -75,7 +73,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <strong>📱 Phone</strong>
-                    <p>+228 79905677</p>
+                    <p>+228 99915142</p>
                 </div>
                 <div class="contact-item">
                     <strong>✉️ Email</strong>
@@ -102,20 +100,6 @@
             const next = current === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', next);
             toggle.textContent = next === 'dark' ? '☀️' : '🌙';
-        });
-
-        // scroll animation for sections
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.cv-section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {threshold: 0.2});
-            sections.forEach(s => observer.observe(s));
         });
     </script>
 </body>

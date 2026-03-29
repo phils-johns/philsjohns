@@ -4,7 +4,7 @@
   --text-color: #000000;
   --primary-color: #ffffff; /* for header/nav background */
   --accent-color: #000000;  /* for text in header/nav */
-  --dock-shadow: rgba(0,0,0,0.3);
+  --dock-shadow: rgba(0,0,0,0.1);
 }
 [data-theme="dark"] {
   --bg-color: #000000; /* deep black */
@@ -13,7 +13,7 @@
   --accent-color: #ffffff;
   --dock-bg: #ffffff;
   --dock-text: #000000;
-  --dock-shadow: rgba(255,255,255,0.3);
+  --dock-shadow: rgba(3, 3, 3, 0.3);
 }
 
 :root {
@@ -85,13 +85,6 @@ body {
 .branding {
   font-weight: bold;
   font-size: 0.75rem; /* 50% smaller */
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.logo {
-  height: 30px;
-  width: auto;
 }
 #theme-toggle {
   background: none;
@@ -256,6 +249,8 @@ main {
   text-align: center;
   padding: 2rem 1rem;
   margin-bottom: 2rem;
+  font-size: auto;
+  border: solid black inset;
 }
 
 .contact-header h1 {
@@ -279,7 +274,7 @@ main {
 .contact-form-section {
   padding: 2rem;
   border: 1px solid var(--text-color);
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
 }
 
 .contact-form-section h2 {
@@ -389,121 +384,9 @@ main {
   text-decoration: none;
   font-weight: 600;
 }
-
-/* premium portfolio enhancements */
-body {
-  font-family: 'Poppins', sans-serif;
-  transition: background-color 0.5s, color 0.5s;
+.img{
+  border: solid black 2px;
+  border-radius: 3px;
+  width: 25%;
+  margin-top: 3%;
 }
-.portfolio-main {
-  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
-  padding-bottom: 4rem; /* keep bottom nav clear */
-}
-
-/* services page enhancements */
-.services-main {
-  background: linear-gradient(135deg,#f7fafc,#edf2f7);
-  padding-bottom: 4rem;
-}
-.services-main h1 {
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 2.5rem;
-}
-.services-list {
-  list-style: none;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0;
-  display: grid;
-  gap: 1rem;
-}
-.services-list li {
-  background: rgba(255,255,255,0.85);
-  padding: 1rem 1.5rem;
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-.service-item .service-info {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.service-img {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-}
-
-.whatsapp-btn {
-  background: #25D366;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  text-decoration: none;
-  font-weight: 600;
-  transition: opacity 0.3s;
-}
-.whatsapp-btn:hover {
-  opacity: 0.8;
-}
-
-.gallery-item {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.gallery-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.header {
-  backdrop-filter: blur(10px);
-}
-
-.cv-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
-  border: none;
-  border-radius: 0 0 1rem 1rem;
-  padding: 3rem 1rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.cv-section {
-  background-color: rgba(255,255,255,0.85);
-  border-left: none;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  backdrop-filter: blur(8px);
-  transform: translateY(20px);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.cv-section.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.skills-list li {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.skills-list li:hover {
-  transform: scale(1.05);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.contact-item {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.contact-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
